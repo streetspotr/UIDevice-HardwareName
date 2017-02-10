@@ -38,6 +38,12 @@
  iPhone7,2 ->    iPhone 6
  iPhone8,1 ->    iPhone 6s
  iPhone8,2 ->    iPhone 6s Plus
+ iPhone8,3 ->    iPhone SE (GSM+CDMA)
+ iPhone8,4 ->    iPhone SE (GSM)
+ iPhone9,1 ->    iPhone 7
+ iPhone9,2 ->    iPhone 7 Plus
+ iPhone9,3 ->    iPhone 7
+ iPhone9,4 ->    iPhone 7 Plus
 
  iPod1,1   ->    iPod touch 1G, N45
  iPod2,1   ->    iPod touch 2G, N72
@@ -173,7 +179,7 @@
 
 #pragma mark platform type and name utils
 
-- (NSUInteger) platformType
+- (UIDevicePlatform) platformType
 {
     NSString *platform = [self platform];
     return [self platform2type:platform];
@@ -181,11 +187,11 @@
 
 - (NSString *) platform2string: (NSString *)platform
 {
-    NSUInteger type = [self platform2type:platform];
+    UIDevicePlatform type = [self platform2type:platform];
     return [self type2string:type];
 }
 
-- (NSUInteger) platform2type: (NSString *)platform
+- (UIDevicePlatform) platform2type: (NSString *)platform
 {
     // The ever mysterious iFPGA
     if ([platform isEqualToString:@"iFPGA"])        return UIDeviceIFPGA;
@@ -210,6 +216,12 @@
     if ([platform isEqualToString:@"iPhone7,2"])    return UIDevice6iPhone;
 	if ([platform isEqualToString:@"iPhone8,1"])    return UIDevice6sPlusiPhone;
 	if ([platform isEqualToString:@"iPhone8,2"])    return UIDevice6siPhone;
+	if ([platform isEqualToString:@"iPhone8,3"])    return UIDeviceSEiPhone1;
+	if ([platform isEqualToString:@"iPhone8,4"])    return UIDeviceSEiPhone2;
+	if ([platform isEqualToString:@"iPhone9,1"])    return UIDevice7iPhone1;
+	if ([platform isEqualToString:@"iPhone9,2"])    return UIDevice7PlusiPhone1;
+	if ([platform isEqualToString:@"iPhone9,3"])    return UIDevice7iPhone2;
+	if ([platform isEqualToString:@"iPhone9,4"])    return UIDevice7PlusiPhone2;
 
     if ([platform isEqualToString:@"iPod1,1"])    return UIDevice1GiPod;
     if ([platform isEqualToString:@"iPod2,1"])    return UIDevice2GiPod;
@@ -217,7 +229,8 @@
     if ([platform isEqualToString:@"iPod3,1"])    return UIDevice3GiPod;
     if ([platform isEqualToString:@"iPod4,1"])    return UIDevice4GiPod;
     if ([platform isEqualToString:@"iPod5,1"])    return UIDevice5GiPod;
-    
+	if ([platform isEqualToString:@"iPod7,1"])    return UIDevice6GiPod;
+
     // Thanks NSForge
     if ([platform isEqualToString:@"iPad1,1"])    return UIDevice1GiPad;
     if ([platform isEqualToString:@"iPad2,1"])    return UIDevice2GiPad;
@@ -271,7 +284,7 @@
     return [self type2string:[self platformType]];
 }
 
-- (NSString *) type2string:(NSUInteger)type
+- (NSString *) type2string:(UIDevicePlatform)type
 {
     switch (type)
     {
@@ -287,6 +300,12 @@
         case UIDevice6PlusiPhone: return IPHONE_6PLUS_NAMESTRING;
 		case UIDevice6siPhone: return IPHONE_6S_NAMESTRING;
 		case UIDevice6sPlusiPhone: return IPHONE_6SPLUS_NAMESTRING;
+		case UIDeviceSEiPhone1: return IPHONE_SE_NAMESTRING1;
+		case UIDeviceSEiPhone2: return IPHONE_SE_NAMESTRING2;
+		case UIDevice7iPhone1: return IPHONE_7_NAMESTRING1;
+		case UIDevice7PlusiPhone1: return IPHONE_7PLUS_NAMESTRING1;
+		case UIDevice7iPhone2: return IPHONE_7_NAMESTRING2;
+		case UIDevice7PlusiPhone2: return IPHONE_7PLUS_NAMESTRING2;
         case UIDeviceUnknowniPhone: return IPHONE_UNKNOWN_NAMESTRING;
         
         case UIDevice1GiPod: return IPOD_1G_NAMESTRING;
@@ -294,6 +313,7 @@
         case UIDevice3GiPod: return IPOD_3G_NAMESTRING;
         case UIDevice4GiPod: return IPOD_4G_NAMESTRING;
         case UIDevice5GiPod: return IPOD_5G_NAMESTRING;
+		case UIDevice6GiPod: return IPOD_6G_NAMESTRING;
         case UIDeviceUnknowniPod: return IPOD_UNKNOWN_NAMESTRING;
             
         case UIDevice1GiPad: return IPAD_1G_NAMESTRING;
@@ -320,7 +340,7 @@
             
         case UIDeviceIFPGA: return IFPGA_NAMESTRING;
             
-        default: return IOS_FAMILY_UNKNOWN_DEVICE;
+        case UIDeviceUnknown: return IOS_FAMILY_UNKNOWN_DEVICE;
     }
 }
 

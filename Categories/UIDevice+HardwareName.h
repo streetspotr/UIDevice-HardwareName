@@ -20,6 +20,12 @@
 #define IPHONE_6PLUS_NAMESTRING         @"iPhone 6 Plus"
 #define IPHONE_6S_NAMESTRING            @"iPhone 6s"
 #define IPHONE_6SPLUS_NAMESTRING        @"iPhone 6s Plus"
+#define IPHONE_SE_NAMESTRING1           @"iPhone SE (GSM+CDMA)"
+#define IPHONE_SE_NAMESTRING2           @"iPhone SE (GSM)"
+#define IPHONE_7_NAMESTRING1            @"iPhone 7"
+#define IPHONE_7PLUS_NAMESTRING1        @"iPhone 7 Plus"
+#define IPHONE_7_NAMESTRING2            @"iPhone 7"
+#define IPHONE_7PLUS_NAMESTRING2        @"iPhone 7 Plus"
 #define IPHONE_UNKNOWN_NAMESTRING       @"Unknown iPhone"
 
 #define IPOD_1G_NAMESTRING              @"iPod touch 1G"
@@ -27,6 +33,7 @@
 #define IPOD_3G_NAMESTRING              @"iPod touch 3G"
 #define IPOD_4G_NAMESTRING              @"iPod touch 4G"
 #define IPOD_5G_NAMESTRING              @"iPod touch 5G"
+#define IPOD_6G_NAMESTRING              @"iPod touch 6G"
 #define IPOD_UNKNOWN_NAMESTRING         @"Unknown iPod"
 
 #define IPAD_1G_NAMESTRING              @"iPad 1G"
@@ -73,13 +80,20 @@ typedef enum {
     UIDevice6PlusiPhone,
 	UIDevice6siPhone,
 	UIDevice6sPlusiPhone,
+	UIDeviceSEiPhone1,
+	UIDeviceSEiPhone2,
+	UIDevice7iPhone1,
+	UIDevice7PlusiPhone1,
+	UIDevice7iPhone2,
+	UIDevice7PlusiPhone2,
 
     UIDevice1GiPod,
     UIDevice2GiPod,
     UIDevice3GiPod,
     UIDevice4GiPod,
     UIDevice5GiPod,
-    
+	UIDevice6GiPod,
+
     UIDevice1GiPad,
     UIDevice2GiPad,
     UIDevice3GiPad,
@@ -116,7 +130,7 @@ typedef enum {
 @interface UIDevice (Hardware)
 - (NSString *) platform;
 - (NSString *) hwmodel;
-- (NSUInteger) platformType;
+- (UIDevicePlatform) platformType;
 - (NSString *) platformString;
 
 - (NSUInteger) cpuFrequency;
@@ -134,6 +148,6 @@ typedef enum {
 - (UIDeviceFamily) deviceFamily;
 
 - (NSString *) platform2string: (NSString *)platform;
-- (NSUInteger) platform2type: (NSString *)platform;
-- (NSString *) type2string:(NSUInteger)type;
+- (UIDevicePlatform) platform2type: (NSString *)platform;
+- (NSString *) type2string:(UIDevicePlatform)type;
 @end
