@@ -1,73 +1,21 @@
 /*
+ Based on:
  Erica Sadun, http://ericasadun.com
  iPhone Developer's Cookbook, 6.x Edition
  BSD License, Use at your own risk
- */
+
+ Rewritten with lookup tables:
+ Manfred Schwind, mani.de
+ Streetspotr, streetspotr.com
+*/
 
 #import <UIKit/UIKit.h>
-
-#define IFPGA_NAMESTRING                @"iFPGA"
-
-#define IPHONE_1G_NAMESTRING            @"iPhone 1"
-#define IPHONE_3G_NAMESTRING            @"iPhone 3G"
-#define IPHONE_3GS_NAMESTRING           @"iPhone 3GS" 
-#define IPHONE_4_NAMESTRING             @"iPhone 4" 
-#define IPHONE_4S_NAMESTRING            @"iPhone 4S"
-#define IPHONE_5_NAMESTRING             @"iPhone 5"
-#define IPHONE_5C_NAMESTRING            @"iPhone 5c"
-#define IPHONE_5S_NAMESTRING            @"iPhone 5s"
-#define IPHONE_6_NAMESTRING             @"iPhone 6"
-#define IPHONE_6PLUS_NAMESTRING         @"iPhone 6 Plus"
-#define IPHONE_6S_NAMESTRING            @"iPhone 6s"
-#define IPHONE_6SPLUS_NAMESTRING        @"iPhone 6s Plus"
-#define IPHONE_SE_NAMESTRING1           @"iPhone SE (GSM+CDMA)"
-#define IPHONE_SE_NAMESTRING2           @"iPhone SE (GSM)"
-#define IPHONE_7_NAMESTRING1            @"iPhone 7"
-#define IPHONE_7PLUS_NAMESTRING1        @"iPhone 7 Plus"
-#define IPHONE_7_NAMESTRING2            @"iPhone 7"
-#define IPHONE_7PLUS_NAMESTRING2        @"iPhone 7 Plus"
-#define IPHONE_UNKNOWN_NAMESTRING       @"Unknown iPhone"
-
-#define IPOD_1G_NAMESTRING              @"iPod touch 1G"
-#define IPOD_2G_NAMESTRING              @"iPod touch 2G"
-#define IPOD_3G_NAMESTRING              @"iPod touch 3G"
-#define IPOD_4G_NAMESTRING              @"iPod touch 4G"
-#define IPOD_5G_NAMESTRING              @"iPod touch 5G"
-#define IPOD_6G_NAMESTRING              @"iPod touch 6G"
-#define IPOD_UNKNOWN_NAMESTRING         @"Unknown iPod"
-
-#define IPAD_1G_NAMESTRING              @"iPad 1G"
-#define IPAD_2G_NAMESTRING              @"iPad 2"
-#define IPAD_3G_NAMESTRING              @"iPad 3"
-#define IPAD_Air_NAMESTRING             @"iPad Air"
-#define IPAD_Air2_NAMESTRING            @"iPad Air 2"
-#define IPAD_UNKNOWN_NAMESTRING         @"Unknown iPad"
-
-#define IPAD_MINI_1G_NAMESTRING         @"iPad mini 1G"
-#define IPAD_MINI_2G_NAMESTRING         @"iPad mini 2G"
-#define IPAD_MINI_3G_NAMESTRING         @"iPad mini 3G"
-#define IPAD_MINI_UNKNOWN_NAMESTRING    @"Unknown iPad Mini"
-
-#define APPLETV_2G_NAMESTRING           @"Apple TV 2G"
-#define APPLETV_3G_NAMESTRING           @"Apple TV 3G"
-#define APPLETV_4G_NAMESTRING           @"Apple TV 4G"
-#define APPLETV_UNKNOWN_NAMESTRING      @"Unknown Apple TV"
-
-#define IOS_FAMILY_UNKNOWN_DEVICE       @"Unknown iOS device"
-
-#define SIMULATOR_NAMESTRING            @"iPhone Simulator"
-#define SIMULATOR_IPHONE_NAMESTRING     @"iPhone Simulator"
-#define SIMULATOR_IPAD_NAMESTRING       @"iPad Simulator"
-#define SIMULATOR_APPLETV_NAMESTRING    @"Apple TV Simulator" // :)
 
 typedef enum {
     UIDeviceUnknown,
     
     UIDeviceSimulator,
-    UIDeviceSimulatoriPhone,
-    UIDeviceSimulatoriPad,
-    UIDeviceSimulatorAppleTV,
-    
+
     UIDevice1GiPhone,
     UIDevice3GiPhone,
     UIDevice3GSiPhone,
@@ -80,12 +28,9 @@ typedef enum {
     UIDevice6PlusiPhone,
 	UIDevice6siPhone,
 	UIDevice6sPlusiPhone,
-	UIDeviceSEiPhone1,
-	UIDeviceSEiPhone2,
-	UIDevice7iPhone1,
-	UIDevice7PlusiPhone1,
-	UIDevice7iPhone2,
-	UIDevice7PlusiPhone2,
+	UIDeviceSEiPhone,
+	UIDevice7iPhone,
+	UIDevice7PlusiPhone,
 
     UIDevice1GiPod,
     UIDevice2GiPod,
@@ -97,13 +42,17 @@ typedef enum {
     UIDevice1GiPad,
     UIDevice2GiPad,
     UIDevice3GiPad,
-    UIDeviceAiriPad,
-    UIDeviceAir2iPad,
+
+    UIDeviceiPadAir,
+    UIDeviceiPadAir2,
 
     UIDevice1GiPadMini,
     UIDevice2GiPadMini,
     UIDevice3GiPadMini,
-    
+
+	UIDeviceiPadPro9,
+	UIDeviceiPadPro12,
+
     UIDeviceAppleTV2,
     UIDeviceAppleTV3,
     UIDeviceAppleTV4,
@@ -111,9 +60,7 @@ typedef enum {
     UIDeviceUnknowniPhone,
     UIDeviceUnknowniPod,
     UIDeviceUnknowniPad,
-    UIDeviceUnknowniPadMini,
-    UIDeviceUnknownAppleTV,
-    UIDeviceIFPGA,
+    UIDeviceUnknownAppleTV
 
 } UIDevicePlatform;
 
@@ -121,17 +68,16 @@ typedef enum {
     UIDeviceFamilyiPhone,
     UIDeviceFamilyiPod,
     UIDeviceFamilyiPad,
-    UIDeviceFamilyiPadMini,
     UIDeviceFamilyAppleTV,
-    UIDeviceFamilyUnknown,
-    
+    UIDeviceFamilyUnknown
 } UIDeviceFamily;
 
 @interface UIDevice (Hardware)
-- (NSString *) platform;
+- (NSString *) platform;			// internal name, e.g. "iPhone8,1"
+- (UIDevicePlatform) platformType;	// own list lookup, e.g. UIDevice6sPlusiPhone
+- (NSString *) platformString;		// human readable, e.g. "iPhone 6s Plus"
+- (UIDeviceFamily) deviceFamily;
 - (NSString *) hwmodel;
-- (UIDevicePlatform) platformType;
-- (NSString *) platformString;
 
 - (NSUInteger) cpuFrequency;
 - (NSUInteger) busFrequency;
@@ -145,9 +91,5 @@ typedef enum {
 - (NSString *) macaddress;
 
 - (BOOL) hasRetinaDisplay;
-- (UIDeviceFamily) deviceFamily;
 
-- (NSString *) platform2string: (NSString *)platform;
-- (UIDevicePlatform) platform2type: (NSString *)platform;
-- (NSString *) type2string:(UIDevicePlatform)type;
 @end
