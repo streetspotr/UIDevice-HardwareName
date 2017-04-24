@@ -302,23 +302,23 @@ static const Platform unknownPlatforms[] = {
     mib[4] = NET_RT_IFLIST;
     
     if ((mib[5] = if_nametoindex("en0")) == 0) {
-        printf("Error: if_nametoindex error\n");
+		assert(false);	// Error: if_nametoindex error
         return NULL;
     }
     
     if (sysctl(mib, 6, NULL, &len, NULL, 0) < 0) {
-        printf("Error: sysctl, take 1\n");
+		assert(false);	// Error: sysctl, take 1
         return NULL;
     }
     
     if ((buf = malloc(len)) == NULL) {
-        printf("Error: Memory allocation error\n");
+		assert(false);	// Error: Out of memory!
         return NULL;
     }
     
     if (sysctl(mib, 6, buf, &len, NULL, 0) < 0) {
-        printf("Error: sysctl, take 2\n");
-        free(buf); // Thanks, Remy "Psy" Demerest
+		assert(false);	// Error: sysctl, take 2
+        free(buf);		// Thanks, Remy "Psy" Demerest
         return NULL;
     }
     
