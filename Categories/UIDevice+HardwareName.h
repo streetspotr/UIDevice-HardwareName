@@ -31,6 +31,9 @@ typedef enum {
 	UIDeviceSEiPhone,
 	UIDevice7iPhone,
 	UIDevice7PlusiPhone,
+	UIDevice8iPhone,
+	UIDevice8PlusiPhone,
+	UIDeviceXiPhone,
 
     UIDevice1GiPod,
     UIDevice2GiPod,

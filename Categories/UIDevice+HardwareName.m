@@ -55,6 +55,12 @@ static const Platform knownPlatforms[] = {
 	{"iPhone9,2", UIDevice7PlusiPhone, UIDeviceFamilyiPhone, "iPhone 7 Plus"},
 	{"iPhone9,3", UIDevice7iPhone, UIDeviceFamilyiPhone, "iPhone 7"},
 	{"iPhone9,4", UIDevice7PlusiPhone, UIDeviceFamilyiPhone, "iPhone 7 Plus"},
+	{"iPhone10,1", UIDevice8iPhone, UIDeviceFamilyiPhone, "iPhone 8 (CDMA)"},
+	{"iPhone10,2", UIDevice8PlusiPhone, UIDeviceFamilyiPhone, "iPhone 8 Plus (CDMA)"},
+	{"iPhone10,3", UIDeviceXiPhone, UIDeviceFamilyiPhone, "iPhone X (CDMA)"},
+	{"iPhone10,4", UIDevice8iPhone, UIDeviceFamilyiPhone, "iPhone 8 (GSM)"},
+	{"iPhone10,5", UIDevice8PlusiPhone, UIDeviceFamilyiPhone, "iPhone 8 Plus (GSM)"},
+	{"iPhone10,6", UIDeviceXiPhone, UIDeviceFamilyiPhone, "iPhone X (GSM)"},
 
 	{"iPod1,1", UIDevice1GiPod, UIDeviceFamilyiPod, "iPod touch 1G"},
 	{"iPod2,1", UIDevice2GiPod, UIDeviceFamilyiPod, "iPod touch 2G"},
