@@ -75,11 +75,25 @@ typedef enum {
     UIDeviceFamilyUnknown
 } UIDeviceFamily;
 
-@interface UIDevice (Hardware)
-- (NSString *) platform;			// internal name, e.g. "iPhone8,1"
-- (UIDevicePlatform) platformType;	// own list lookup, e.g. UIDevice6sPlusiPhone
-- (NSString *) platformString;		// human readable, e.g. "iPhone 6s Plus"
+@interface PlatformInfo : NSObject
+
+// convert the internal platform name (e.g. "iPhone8,1" into an PlatformInfo object (never nil):
++ (PlatformInfo *)createForPlatformIdentifier:(NSString *)identifier;
+
+- (BOOL) haveInfo;						// do we have found any information at all?
+- (BOOL) isExakt;						// is the platform exactly known or do we just have "unknown iPhone" or "unknown iPad" etc.?
+- (NSString *) platformIdentifier;		// the internal name used for construction, e.g. "iPhone8,1"
+- (UIDevicePlatform) platformType;		// own list lookup, e.g. UIDevice6sPlusiPhone
+- (NSString *) platformString;			// human readable, e.g. "iPhone 6s Plus"
+- (NSString *) verbosePlatformString;	// platformString with networkString, e.g. "iPhone 8 Plus (GSM)"
+- (NSString *) networkString;			// e.g. "GSM", "CDMA", "WiFi" etc. but may be nil if unknown or unspecific
 - (UIDeviceFamily) deviceFamily;
+
+@end
+
+@interface UIDevice (Hardware)
+- (NSString *) platform;				// internal platform name, e.g. "iPhone8,1"
+- (PlatformInfo *) platformInfo;		// more information about the platform (see PlatFormInfo above)
 - (NSString *) hwmodel;
 
 - (NSUInteger) cpuFrequency;
@@ -96,3 +110,4 @@ typedef enum {
 - (BOOL) hasRetinaDisplay;
 
 @end
+
