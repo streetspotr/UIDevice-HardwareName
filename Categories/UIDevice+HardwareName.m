@@ -103,6 +103,13 @@ static const Platform knownPlatforms[] = {
     {"iPad6,7", UIDeviceiPadPro12, UIDeviceFamilyiPad, "iPad Pro 12.9\"", "WiFi"},
     {"iPad6,8", UIDeviceiPadPro12, UIDeviceFamilyiPad, "iPad Pro 12.9\"", "LTE"},
 
+	{"iPad7,1", UIDeviceiPadPro12, UIDeviceFamilyiPad, "iPad Pro 2 12.9\"", "WiFi"},
+	{"iPad7,2", UIDeviceiPadPro12, UIDeviceFamilyiPad, "iPad Pro 2 12.9\"", "LTE"},
+	{"iPad7,3", UIDeviceiPadPro10, UIDeviceFamilyiPad, "iPad Pro 2 10.5\"", "WiFi"},
+	{"iPad7,4", UIDeviceiPadPro10, UIDeviceFamilyiPad, "iPad Pro 2 10.5\"", "LTE"},
+	{"iPad7,5", UIDevice6GiPad, UIDeviceFamilyiPad, "iPad 6G", "WiFi"},
+	{"iPad7,6", UIDevice6GiPad, UIDeviceFamilyiPad, "iPad 6G", "LTE"},
+
 	{"AppleTV2,1", UIDeviceAppleTV2, UIDeviceFamilyAppleTV, "Apple TV 2", NULL},
 	{"AppleTV3,1", UIDeviceAppleTV3, UIDeviceFamilyAppleTV, "Apple TV 3", NULL},
 	{"AppleTV3,2", UIDeviceAppleTV4, UIDeviceFamilyAppleTV, "Apple TV 4", NULL}

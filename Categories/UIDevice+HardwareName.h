@@ -45,6 +45,7 @@ typedef enum {
     UIDevice1GiPad,
     UIDevice2GiPad,
     UIDevice3GiPad,
+	UIDevice6GiPad,
 
     UIDeviceiPadAir,
     UIDeviceiPadAir2,
@@ -54,6 +55,7 @@ typedef enum {
     UIDevice3GiPadMini,
 
 	UIDeviceiPadPro9,
+	UIDeviceiPadPro10,
 	UIDeviceiPadPro12,
 
     UIDeviceAppleTV2,
