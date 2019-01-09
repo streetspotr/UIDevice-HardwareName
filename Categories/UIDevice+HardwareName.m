@@ -62,6 +62,10 @@ static const Platform knownPlatforms[] = {
 	{"iPhone10,4", UIDevice8iPhone, UIDeviceFamilyiPhone, "iPhone 8", "GSM"},
 	{"iPhone10,5", UIDevice8PlusiPhone, UIDeviceFamilyiPhone, "iPhone 8 Plus", "GSM"},
 	{"iPhone10,6", UIDeviceXiPhone, UIDeviceFamilyiPhone, "iPhone X", "GSM"},
+	{"iPhone11,8", UIDeviceXiPhone, UIDeviceFamilyiPhone, "iPhone XR", NULL},
+	{"iPhone11,2", UIDeviceXiPhone, UIDeviceFamilyiPhone, "iPhone XS", NULL},
+	{"iPhone11,6", UIDeviceXiPhone, UIDeviceFamilyiPhone, "iPhone XS Max", NULL},	// worldwide variant
+	{"iPhone11,4", UIDeviceXiPhone, UIDeviceFamilyiPhone, "iPhone XS Max", NULL},	// unknown other variant (?)
 
 	{"iPod1,1", UIDevice1GiPod, UIDeviceFamilyiPod, "iPod touch 1G", NULL},
 	{"iPod2,1", UIDevice2GiPod, UIDeviceFamilyiPod, "iPod touch 2G", NULL},
@@ -78,9 +82,13 @@ static const Platform knownPlatforms[] = {
 	{"iPad3,1", UIDevice3GiPad, UIDeviceFamilyiPad, "iPad 3G", "WiFi"},
 	{"iPad3,2", UIDevice3GiPad, UIDeviceFamilyiPad, "iPad 3G", "GSM"},
 	{"iPad3,3", UIDevice3GiPad, UIDeviceFamilyiPad, "iPad 3G", "CDMA"},
-	{"iPad3,4", UIDevice3GiPad, UIDeviceFamilyiPad, "iPad 3G", NULL},
-	{"iPad3,5", UIDevice3GiPad, UIDeviceFamilyiPad, "iPad 3G", NULL},
-	{"iPad3,6", UIDevice3GiPad, UIDeviceFamilyiPad, "iPad 3G", NULL},
+	{"iPad3,4", UIDevice4GiPad, UIDeviceFamilyiPad, "iPad 4G", NULL},
+	{"iPad3,5", UIDevice4GiPad, UIDeviceFamilyiPad, "iPad 4G", NULL},
+	{"iPad3,6", UIDevice4GiPad, UIDeviceFamilyiPad, "iPad 4G", NULL},
+	{"iPad6,11", UIDevice5GiPad, UIDeviceFamilyiPad, "iPad 5G", NULL},
+	{"iPad6,12", UIDevice5GiPad, UIDeviceFamilyiPad, "iPad 5G", NULL},
+	{"iPad7,5", UIDevice6GiPad, UIDeviceFamilyiPad, "iPad 6G", "WiFi"},
+	{"iPad7,6", UIDevice6GiPad, UIDeviceFamilyiPad, "iPad 6G", "LTE"},
 
 	{"iPad4,1", UIDeviceiPadAir, UIDeviceFamilyiPad, "iPad Air", "WiFi"},
 	{"iPad4,2", UIDeviceiPadAir, UIDeviceFamilyiPad, "iPad Air", "GSM"},
@@ -107,12 +115,22 @@ static const Platform knownPlatforms[] = {
 	{"iPad7,2", UIDeviceiPadPro12, UIDeviceFamilyiPad, "iPad Pro 2 12.9\"", "LTE"},
 	{"iPad7,3", UIDeviceiPadPro10, UIDeviceFamilyiPad, "iPad Pro 2 10.5\"", "WiFi"},
 	{"iPad7,4", UIDeviceiPadPro10, UIDeviceFamilyiPad, "iPad Pro 2 10.5\"", "LTE"},
-	{"iPad7,5", UIDevice6GiPad, UIDeviceFamilyiPad, "iPad 6G", "WiFi"},
-	{"iPad7,6", UIDevice6GiPad, UIDeviceFamilyiPad, "iPad 6G", "LTE"},
+
+	{"iPad8,1", UIDeviceiPadPro11, UIDeviceFamilyiPad, "iPad Pro 11\"", NULL},
+	{"iPad8,2", UIDeviceiPadPro11, UIDeviceFamilyiPad, "iPad Pro 11\"", NULL},
+	{"iPad8,3", UIDeviceiPadPro11, UIDeviceFamilyiPad, "iPad Pro 11\"", NULL},
+	{"iPad8,4", UIDeviceiPadPro11, UIDeviceFamilyiPad, "iPad Pro 11\"", NULL},
+
+	{"iPad8,5", UIDeviceiPadPro12, UIDeviceFamilyiPad, "iPad Pro 3 12.9\"", NULL},
+	{"iPad8,6", UIDeviceiPadPro12, UIDeviceFamilyiPad, "iPad Pro 3 12.9\"", NULL},
+	{"iPad8,7", UIDeviceiPadPro12, UIDeviceFamilyiPad, "iPad Pro 3 12.9\"", NULL},
+	{"iPad8,8", UIDeviceiPadPro12, UIDeviceFamilyiPad, "iPad Pro 3 12.9\"", NULL},
 
 	{"AppleTV2,1", UIDeviceAppleTV2, UIDeviceFamilyAppleTV, "Apple TV 2", NULL},
 	{"AppleTV3,1", UIDeviceAppleTV3, UIDeviceFamilyAppleTV, "Apple TV 3", NULL},
-	{"AppleTV3,2", UIDeviceAppleTV4, UIDeviceFamilyAppleTV, "Apple TV 4", NULL}
+	{"AppleTV3,2", UIDeviceAppleTV3, UIDeviceFamilyAppleTV, "Apple TV 3", NULL},
+	{"AppleTV5,3", UIDeviceAppleTV4, UIDeviceFamilyAppleTV, "Apple TV 4", NULL},
+	{"AppleTV6,2", UIDeviceAppleTV4K, UIDeviceFamilyAppleTV, "Apple TV 4K", NULL}
 };
 
 static const Platform unknownPlatforms[] = {
