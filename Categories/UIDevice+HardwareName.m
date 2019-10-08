@@ -66,6 +66,9 @@ static const Platform knownPlatforms[] = {
 	{"iPhone11,2", UIDeviceXiPhone, UIDeviceFamilyiPhone, "iPhone XS", NULL},
 	{"iPhone11,6", UIDeviceXiPhone, UIDeviceFamilyiPhone, "iPhone XS Max", NULL},	// worldwide variant
 	{"iPhone11,4", UIDeviceXiPhone, UIDeviceFamilyiPhone, "iPhone XS Max", NULL},	// unknown other variant (?)
+	{"iPhone12,1", UIDevice11iPhone, UIDeviceFamilyiPhone, "iPhone 11", NULL},
+	{"iPhone12,3", UIDevice11iPhone, UIDeviceFamilyiPhone, "iPhone 11 Pro", NULL},
+	{"iPhone12,5", UIDevice11iPhone, UIDeviceFamilyiPhone, "iPhone 11 Pro Max", NULL},
 
 	{"iPod1,1", UIDevice1GiPod, UIDeviceFamilyiPod, "iPod touch 1G", NULL},
 	{"iPod2,1", UIDevice2GiPod, UIDeviceFamilyiPod, "iPod touch 2G", NULL},
@@ -73,6 +76,7 @@ static const Platform knownPlatforms[] = {
 	{"iPod4,1", UIDevice4GiPod, UIDeviceFamilyiPod, "iPod touch 4G", NULL},
 	{"iPod5,1", UIDevice5GiPod, UIDeviceFamilyiPod, "iPod touch 5G", NULL},
 	{"iPod7,1", UIDevice6GiPod, UIDeviceFamilyiPod, "iPod touch 6G", NULL},
+	{"iPod9,1", UIDevice7GiPod, UIDeviceFamilyiPod, "iPod touch 7G", NULL},
 
 	{"iPad1,1", UIDevice1GiPad, UIDeviceFamilyiPad, "iPad 1G", NULL},
 	{"iPad2,1", UIDevice2GiPad, UIDeviceFamilyiPad, "iPad 2G", "WiFi"},
@@ -89,12 +93,16 @@ static const Platform knownPlatforms[] = {
 	{"iPad6,12", UIDevice5GiPad, UIDeviceFamilyiPad, "iPad 5G", NULL},
 	{"iPad7,5", UIDevice6GiPad, UIDeviceFamilyiPad, "iPad 6G", "WiFi"},
 	{"iPad7,6", UIDevice6GiPad, UIDeviceFamilyiPad, "iPad 6G", "LTE"},
+	{"iPad7,11", UIDevice7GiPad, UIDeviceFamilyiPad, "iPad 7G", "WiFi"},
+	{"iPad7,12", UIDevice7GiPad, UIDeviceFamilyiPad, "iPad 7G", "LTE"},
 
 	{"iPad4,1", UIDeviceiPadAir, UIDeviceFamilyiPad, "iPad Air", "WiFi"},
 	{"iPad4,2", UIDeviceiPadAir, UIDeviceFamilyiPad, "iPad Air", "GSM"},
 	{"iPad4,3", UIDeviceiPadAir, UIDeviceFamilyiPad, "iPad Air", "CDMA"},
-	{"iPad5,3", UIDeviceiPadAir2, UIDeviceFamilyiPad, "iPad Air 2", NULL},
-	{"iPad5,4", UIDeviceiPadAir2, UIDeviceFamilyiPad, "iPad Air 2", NULL},
+	{"iPad5,3", UIDeviceiPadAir2, UIDeviceFamilyiPad, "iPad Air 2", "WiFi"},
+	{"iPad5,4", UIDeviceiPadAir2, UIDeviceFamilyiPad, "iPad Air 2", "LTE"},
+	{"iPad11,3", UIDeviceiPadAir3, UIDeviceFamilyiPad, "iPad Air 3", "WiFi"},
+	{"iPad11,4", UIDeviceiPadAir3, UIDeviceFamilyiPad, "iPad Air 3", "LTE"},
 
 	{"iPad2,5", UIDevice1GiPadMini, UIDeviceFamilyiPad, "iPad Mini 1G", NULL},
 	{"iPad2,6", UIDevice1GiPadMini, UIDeviceFamilyiPad, "iPad Mini 1G", NULL},
@@ -105,6 +113,10 @@ static const Platform knownPlatforms[] = {
 	{"iPad4,7", UIDevice3GiPadMini, UIDeviceFamilyiPad, "iPad Mini 3G", NULL},
 	{"iPad4,8", UIDevice3GiPadMini, UIDeviceFamilyiPad, "iPad Mini 3G", NULL},
 	{"iPad4,9", UIDevice3GiPadMini, UIDeviceFamilyiPad, "iPad Mini 3G", NULL},
+	{"iPad5,1", UIDevice4GiPadMini, UIDeviceFamilyiPad, "iPad Mini 4G", "WiFi"},
+	{"iPad5,2", UIDevice4GiPadMini, UIDeviceFamilyiPad, "iPad Mini 4G", "LTE"},
+	{"iPad11,1", UIDevice5GiPadMini, UIDeviceFamilyiPad, "iPad Mini 5G", "WiFi"},
+	{"iPad11,2", UIDevice5GiPadMini, UIDeviceFamilyiPad, "iPad Mini 5G", "LTE"},
 
     {"iPad6,3", UIDeviceiPadPro9, UIDeviceFamilyiPad, "iPad Pro 9.7\"", "WiFi"},
     {"iPad6,4", UIDeviceiPadPro9, UIDeviceFamilyiPad, "iPad Pro 9.7\"", "LTE"},
